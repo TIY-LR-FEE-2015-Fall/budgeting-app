@@ -38,3 +38,14 @@ test('User can go to new budget page', function(assert) {
     assert.equal(currentRouteName(), 'budgets.new');
   });
 });
+
+test('User can go to an edit budget page', function(assert) {
+  server.createList('budget', 3);
+  visit('/');
+  click('.budget-edit-btn:first');
+
+  andThen(function() {
+    assert.equal(currentRouteName(), 'budgets.edit');
+    assert.equal(currentURL(), '/1/edit');
+  });
+});
