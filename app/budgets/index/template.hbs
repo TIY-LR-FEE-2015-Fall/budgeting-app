@@ -1,17 +1,9 @@
 <ul class="budget-list">
-  <li class="budget-list-item">
-    <span class="budget-list-item__name">Groceries</span> -
-    <span class="budget-list-item__start-date">12/1/15</span>
-    <span class="budget-list-item__remaining">+$100</span>
-  </li>
-  <li class="budget-list-item">
-    <span class="budget-list-item__name">Entertainment</span> -
-    <span class="budget-list-item__start-date">12/1/15</span>
-    <span class="budget-list-item__remaining">+$20</span>
-  </li>
-  <li class="budget-list-item">
-    <span class="budget-list-item__name">Christmas Gifts</span> -
-    <span class="budget-list-item__start-date">12/1/15</span>
-    <span class="budget-list-item__remaining">+$120</span>
-  </li>
+  {{#each model as |budget|}}
+    <li class="budget-list-item">
+      <span class="budget-list-item__name">{{ budget.name }}</span> -
+      <span class="budget-list-item__start-date">{{ budget.startDate }}</span>
+      <span class="budget-list-item__remaining">{{ budget.remaining }}</span>
+    </li>
+  {{/each}}
 </ul>
