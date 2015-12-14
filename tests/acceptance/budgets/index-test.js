@@ -29,3 +29,12 @@ test('User can see a list of budgets', function(assert) {
     assert.equal(firstItem.find('.budget-list-item__remaining').text(), '+$100');
   });
 });
+
+test('User can go to new budget page', function(assert) {
+  visit('/');
+  click('.budget-new-btn');
+
+  andThen(function() {
+    assert.equal(currentRouteName(), 'budgets.new');
+  });
+});
