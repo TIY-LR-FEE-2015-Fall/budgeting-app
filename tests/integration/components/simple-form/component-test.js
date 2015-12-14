@@ -22,16 +22,18 @@ test('it captures user input', function(assert) {
   this.render(hbs`
     {{#simple-form onsubmit="captureEvent" as |formValues|}}
       {{input value=formValues.firstName name="firstName"}}
+      {{input value=formValues.lastName name="lastName"}}
 
       <button>Submit</button>
     {{/simple-form}}
   `);
 
-  this.$('input').val('Tom');
+  this.$('input').eq(0).val('Tom');
+  this.$('input').eq(1).val('Dale');
   this.$('input').change();
   this.$('button').click();
 
   function captureEvent(formValues) {
-    assert.deepEquals(formValues, {firstName: 'Tom'});
+    assert.deepEqual(formValues, {firstName: 'Tom', lastName: 'Dale'});
   }
 });
