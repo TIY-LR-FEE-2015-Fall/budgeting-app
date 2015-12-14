@@ -16,6 +16,25 @@ test('it renders', function(assert) {
   assert.equal(this.$().text().trim(), 'template block text');
 });
 
+test('it renders with starting values', function(assert) {
+  this.set('model', {firstName: 'Wow', lastName: 'Such Doge'});
+
+  this.render(hbs`
+    {{#simple-form startingValues=model as |formValues|}}
+      {{input value=formValues.firstName name="firstName"}}
+      {{input value=formValues.lastName name="lastName"}}
+
+      <button>Submit</button>
+    {{/simple-form}}
+  `);
+
+  var firstName = this.$('input').eq(0).val();
+  var lastName = this.$('input').eq(1).val();
+
+  assert.equal(firstName, 'Wow');
+  assert.equal(lastName, 'Such Doge');
+});
+
 test('it captures user input', function(assert) {
   this.on('captureEvent', captureEvent);
 
