@@ -1,0 +1,12 @@
+.form-field {
+  display: flex;
+  width: 300px;
+}
+
+.form-prepend {
+
+}
+
+.form-input {
+  flex: 1;
+}
