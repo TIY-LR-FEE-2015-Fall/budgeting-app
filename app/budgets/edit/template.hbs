@@ -1,1 +1,7 @@
-{{outlet}}
+{{#simple-form onsubmit="saveBudget" startValues=model properties=['name', 'startDate', 'remaining'] as |formValues|}}
+  {{input class="budget-input__name" value=formValues.name}}
+  {{input class="budget-input__start-date" value=formValues.startDate}}
+  {{input class="budget-input__remaining" value=formValues.remaining}}
+
+  <button class="budget-submit-btn">Submit</button>
+{{/simple-form}}
