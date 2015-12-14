@@ -3,4 +3,5 @@ export default function() {
   this.get('/budgets');
   this.post('/budgets');
   this.get('/budgets/:id');
+  this.put('/budgets/:id');
 }
