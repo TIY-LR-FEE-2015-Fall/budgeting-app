@@ -39,6 +39,7 @@ test('User can create a new budget', function(assert) {
     let firstItem = items.first();
 
     assert.equal(items.length, 1, 'There should be the new budget in the list');
+    assert.equal(server.db.budgets.length, 1, 'There should be the new budget saved to the server');
 
     assert.equal(firstItem.find('.budget-list-item__name').text(), 'Video Game');
     assert.equal(firstItem.find('.budget-list-item__start-date').text(), '12/15/15');

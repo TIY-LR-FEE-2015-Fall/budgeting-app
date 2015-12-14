@@ -3,7 +3,11 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'form',
 
-  formValues: {},
+  formValues: null,
+
+  resetFormValue: Ember.on('init', function() {
+    this.set('formValues', {});
+  }),
 
   submit(ev) {
     ev.preventDefault();

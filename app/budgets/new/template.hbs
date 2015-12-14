@@ -1,5 +1,7 @@
-{{input class="budget-input__name"}}
-{{input class="budget-input__start-date"}}
-{{input class="budget-input__remaining"}}
+{{#simple-form onsubmit="saveBudget" as |formValues|}}
+  {{input class="budget-input__name" value=formValues.name}}
+  {{input class="budget-input__start-date" value=formValues.startDate}}
+  {{input class="budget-input__remaining" value=formValues.remaining}}
 
-<button class="budget-submit-btn">Submit</button>
+  <button class="budget-submit-btn">Submit</button>
+{{/simple-form}}
