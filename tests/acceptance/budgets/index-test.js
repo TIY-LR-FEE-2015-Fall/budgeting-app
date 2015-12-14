@@ -15,6 +15,7 @@ test('visiting / shows all budgets', function(assert) {
 });
 
 test('User can see a list of budgets', function(assert) {
+  server.createList('budget', 3);
   visit('/');
 
   andThen(function() {
