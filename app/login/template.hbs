@@ -1,0 +1,6 @@
+{{#simple-form onsubmit="loginUser" as |formValues|}}
+  {{input value=formValues.email name="email" placeholder="Email"}}
+  {{input value=formValues.password name="password" type="password" placeholder="Password"}}
+
+  <button class="login-submit-btn">Button</button>
+{{/simple-form}}
