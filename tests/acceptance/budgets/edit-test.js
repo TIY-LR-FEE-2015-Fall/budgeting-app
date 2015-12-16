@@ -1,7 +1,11 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'exercise-00/tests/helpers/module-for-acceptance';
 
-moduleForAcceptance('Acceptance | budgets/edit');
+moduleForAcceptance('Acceptance | budgets/edit', {
+  beforeEach() {
+    login();
+  },
+});
 
 test('visiting /budgets/edit', function(assert) {
   server.createList('budget', 1);

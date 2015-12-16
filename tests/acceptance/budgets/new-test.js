@@ -1,7 +1,11 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'exercise-00/tests/helpers/module-for-acceptance';
 
-moduleForAcceptance('Acceptance | budgets/new');
+moduleForAcceptance('Acceptance | budgets/new', {
+  beforeEach() {
+    login();
+  },
+});
 
 test('visiting new budget page does not redirect', function(assert) {
   visit('/new');

@@ -1,7 +1,11 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'exercise-00/tests/helpers/module-for-acceptance';
 
-moduleForAcceptance('Acceptance | budgets/index');
+moduleForAcceptance('Acceptance | budgets/index', {
+  beforeEach() {
+    login();
+  },
+});
 
 test('visiting / shows all budgets', function(assert) {
   visit('/');
