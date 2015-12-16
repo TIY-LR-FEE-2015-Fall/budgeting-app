@@ -22,7 +22,9 @@ module.exports = function(environment) {
     'ember-simple-auth': {
       routeAfterAuthentication: 'budgets',
       routeIfAlreadyAuthenticated: 'budgets',
-    }
+    },
+    'ember-cli-mirage': {
+    },
   };
 
   if (environment === 'development') {
@@ -47,6 +49,10 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
 
+  }
+
+  if (process.env.MIRAGE === 'false') {
+    ENV['ember-cli-mirage'].enabled = false;
   }
 
   return ENV;

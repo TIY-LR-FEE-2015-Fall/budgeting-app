@@ -10,6 +10,7 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
+    "develop": "MIRAGE=false ember server -p 5200",
     "test": "ember test"
   },
   "repository": "",
