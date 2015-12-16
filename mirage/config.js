@@ -8,7 +8,7 @@ export default function() {
   this.get('/budgets/:id');
   this.put('/budgets/:id');
 
-  this.post('/token', function(server, req) {
+  this.post('http://localhost:3000/oauth/token', function(server, req) {
     var data = req.requestBody.split('&').reduce((carry, current) => {
       var [key, value] = current.split('=');
 
