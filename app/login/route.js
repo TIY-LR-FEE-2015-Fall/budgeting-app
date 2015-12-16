@@ -5,7 +5,8 @@ export default Ember.Route.extend({
 
   actions: {
     loginUser(formValues) {
-      this.get('session').authenticate('authenticator:application', formValues.email, formValues.password);
+      this.get('session').authenticate('authenticator:application', formValues.email, formValues.password)
+        .catch(() => {});
     },
   },
 });
