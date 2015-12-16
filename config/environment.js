@@ -21,6 +21,7 @@ module.exports = function(environment) {
 
     'ember-simple-auth': {
       routeAfterAuthentication: 'budgets',
+      routeIfAlreadyAuthenticated: 'budgets',
     }
   };
 
