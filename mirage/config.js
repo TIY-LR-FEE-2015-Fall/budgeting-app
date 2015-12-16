@@ -2,13 +2,15 @@
 import Mirage from 'ember-cli-mirage';
 
 export default function() {
+  this.namespace = 'http://localhost:3000';
+
   // Sets mirage to list all budgets
   this.get('/budgets');
   this.post('/budgets');
   this.get('/budgets/:id');
   this.put('/budgets/:id');
 
-  this.post('http://localhost:3000/oauth/token', function(server, req) {
+  this.post('/oauth/token', function(server, req) {
     var data = req.requestBody.split('&').reduce((carry, current) => {
       var [key, value] = current.split('=');
 
