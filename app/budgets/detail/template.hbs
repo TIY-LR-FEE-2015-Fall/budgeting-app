@@ -1,0 +1,10 @@
+<h2 class="budget-detail-name">{{model.name}}</h2>
+<h3 class="budget-detail-remaining">+${{model.remaining}}</h3>
+
+<ul>
+  {{#each model.transactions as |transaction|}}
+    <li class="budget-transaction">
+      <span class="budget-transaction-amount">-${{math-abs transaction.amount}}</span>
+    </li>
+  {{/each}}
+</ul>

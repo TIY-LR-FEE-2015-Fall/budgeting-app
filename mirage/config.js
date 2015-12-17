@@ -10,6 +10,11 @@ export default function() {
   this.get('/budgets/:id');
   this.put('/budgets/:id');
 
+  this.get('/transactions');
+  this.post('/transactions');
+  this.get('/transactions/:id');
+  this.put('/transactions/:id');
+
   this.post('/oauth/token', function(server, req) {
     var data = req.requestBody.split('&').reduce((carry, current) => {
       var [key, value] = current.split('=');

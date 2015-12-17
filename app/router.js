@@ -9,6 +9,10 @@ Router.map(function() {
   this.route('budgets', { path: '/' }, function() {
     this.route('new');
     this.route('edit', {path: '/:budget_id/edit'});
+
+    this.route('detail', {
+      path: '/:budget_id'
+    });
   });
   this.route('login');
 });

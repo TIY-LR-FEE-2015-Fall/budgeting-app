@@ -7,7 +7,9 @@ export default DS.Model.extend({
   startingAmount: DS.attr('number'),
   transactions: DS.hasMany('transaction'),
 
-  remaining: Ember.computed('startingAmount', function() {
-    return this.get('startingAmount');
+  remaining: Ember.computed('startingAmount', 'transactions.@each.amount', function() {
+    return this.get('startingAmount') + this.get('transactions').reduce(function(carry, curr) {
+      return carry + curr.get('amount');
+    }, 0);
   }),
 });
