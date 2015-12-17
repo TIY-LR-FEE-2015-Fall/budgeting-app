@@ -5,7 +5,7 @@
     <li class="budget-list-item">
       <span class="budget-list-item__name">{{ budget.name }}</span> -
       <span class="budget-list-item__start-date">{{ budget.startDate }}</span>
-      <span class="budget-list-item__remaining">{{ budget.remaining }}</span>
+      <span class="budget-list-item__remaining">+${{ budget.remaining }}</span>
       {{#link-to "budgets.edit" budget class="budget-edit-btn"}}Edit{{/link-to}}
     </li>
   {{/each}}

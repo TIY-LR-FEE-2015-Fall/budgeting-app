@@ -22,7 +22,7 @@ test('User can see form for new budget', function(assert) {
   andThen(function() {
     findWithAssert('.budget-input__name');
     findWithAssert('.budget-input__start-date');
-    findWithAssert('.budget-input__remaining');
+    findWithAssert('.budget-input__startingAmount');
     findWithAssert('.budget-submit-btn');
 
     // Beacuse apparently findWithAssert isn't really an assertion?
@@ -34,7 +34,7 @@ test('User can create a new budget', function(assert) {
   visit('/new');
   fillIn('.budget-input__name', 'Video Game');
   fillIn('.budget-input__start-date', '12/15/15');
-  fillIn('.budget-input__remaining', '+$1,000,000');
+  fillIn('.budget-input__startingAmount', '1000000');
   click('.budget-submit-btn');
 
   andThen(function() {
@@ -47,6 +47,6 @@ test('User can create a new budget', function(assert) {
 
     assert.equal(firstItem.find('.budget-list-item__name').text(), 'Video Game');
     assert.equal(firstItem.find('.budget-list-item__start-date').text(), '12/15/15');
-    assert.equal(firstItem.find('.budget-list-item__remaining').text(), '+$1,000,000');
+    assert.equal(firstItem.find('.budget-list-item__remaining').text(), '+$1000000');
   });
 });

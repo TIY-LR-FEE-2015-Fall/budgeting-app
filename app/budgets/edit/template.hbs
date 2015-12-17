@@ -1,13 +1,13 @@
 {{#simple-form onsubmit="saveBudget" startingValues=model as |formValues|}}
   <div class="form-field">
-    {{input class="form-input budget-input__name" value=formValues.name}}
+    {{input class="budget-input__name" placeholder="Name" value=formValues.name}}
   </div>
   <div class="form-field">
-    {{input class="form-input budget-input__start-date" value=formValues.startDate}}
+    {{input class="budget-input__start-date" placeholder="Start Date" value=formValues.startDate}}
   </div>
   <div class="form-field">
     <div class="form-prepend">$</div>
-    {{input class="form-input budget-input__remaining" value=formValues.remaining}}
+    {{input class="budget-input__startingAmount" placeholder="Amount" value=formValues.startingAmount}}
   </div>
 
   <button class="budget-submit-btn">Submit</button>

@@ -17,18 +17,18 @@ test('visiting /budgets/edit', function(assert) {
 });
 
 test('User can see form for editing budget', function(assert) {
-  server.create('budget', {name: 'Fruit', startDate: '1/1/12', remaining: '+$50'});
+  server.create('budget', {name: 'Fruit', startDate: '1/1/12', startingAmount: '50'});
   visit('/1/edit');
 
   andThen(function() {
     let name = findWithAssert('.budget-input__name');
     let startDate = findWithAssert('.budget-input__start-date');
-    let remaining = findWithAssert('.budget-input__remaining');
+    let startingAmount = findWithAssert('.budget-input__startingAmount');
     findWithAssert('.budget-submit-btn');
 
     assert.equal(name.val(), 'Fruit');
     assert.equal(startDate.val(), '1/1/12');
-    assert.equal(remaining.val(), '+$50');
+    assert.equal(startingAmount.val(), '50');
   });
 });
 
@@ -38,7 +38,7 @@ test('User can change existing budget', function(assert) {
 
   fillIn('.budget-input__name', 'Vegetables');
   fillIn('.budget-input__start-date', '00/01/05');
-  fillIn('.budget-input__remaining', '+$10');
+  fillIn('.budget-input__startingAmount', '10');
   click('.budget-submit-btn');
 
   andThen(function() {
