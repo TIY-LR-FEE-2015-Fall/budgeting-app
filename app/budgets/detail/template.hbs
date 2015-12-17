@@ -1,10 +1,16 @@
 <h2 class="budget-detail-name">{{model.name}}</h2>
-<h3 class="budget-detail-remaining">+${{model.remaining}}</h3>
+<h3 class="budget-detail-remaining">{{math-sign model.remaining}}${{math-abs model.remaining}}</h3>
 
 <ul>
   {{#each model.transactions as |transaction|}}
     <li class="budget-transaction">
-      <span class="budget-transaction-amount">-${{math-abs transaction.amount}}</span>
+      <span class="budget-transaction-amount">{{math-sign transaction.amount}}${{math-abs transaction.amount}}</span>
     </li>
   {{/each}}
 </ul>
+
+{{#simple-form onsubmit="addTransaction" as |formValues|}}
+  {{input name="amount" class="budget-new-transaction-amount" value=formValues.amount}}
+
+  <button class="budget-new-submit">Add</button>
+{{/simple-form}}

@@ -34,3 +34,20 @@ test('User can see budget details', function(assert) {
     assert.equal(firstTransaction.text(), '-$10');
   });
 });
+
+test('User can add new transaction', function(assert) {
+  visit('/1');
+  fillIn('.budget-new-transaction-amount', 10);
+  click('.budget-new-submit');
+
+  andThen(function() {
+    var budgetRemaining = findWithAssert('.budget-detail-remaining');
+    var budgetTransactions = findWithAssert('.budget-transaction');
+    var firstTransaction = budgetTransactions.last().find('.budget-transaction-amount');
+
+    assert.equal(server.db.transactions.length, 3, 'New transaction should save to DB');
+    assert.equal(budgetRemaining.text(), '+$80');
+    assert.equal(budgetTransactions.length, 3, 'There should be three budget transactions listed');
+    assert.equal(firstTransaction.text(), '+$10');
+  });
+});
